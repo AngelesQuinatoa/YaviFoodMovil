@@ -30,14 +30,9 @@ class _RegisterState extends State<Register> {
     super.dispose();
   }
 
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text('Registro'),
-        backgroundColor: Color.fromARGB(255, 239, 152, 71),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -262,6 +257,24 @@ class _RegisterState extends State<Register> {
                       primary: Color(0xFFFFA07A),
                     ),
                     child: Text('Registrar'),
+                  ),
+                  const SizedBox(height: 16.0),
+                  GestureDetector(
+                   onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => login()),
+                      );
+                    },
+                    child: Text(
+                      '¿Ya tienes cuenta? Iniciar sesión',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ],
               ),

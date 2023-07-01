@@ -74,156 +74,154 @@ class Screen1 extends StatelessWidget {
     return Container(
       color: Colors.white,
       child: Scaffold(
-       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Yavi',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Lobster',
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Yavi',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Lobster',
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(
-                'Food',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 232, 153, 88),
-                  fontFamily: 'Lobster',
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
+                Text(
+                  'Food',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 232, 153, 88),
+                    fontFamily: 'Lobster',
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-      ),
-      drawer: Drawer(
-        child: Container(
-          color: Color.fromARGB(255, 255, 255, 255),
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 232, 153, 88)
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-                      radius: 50.0,
-                      backgroundImage: AssetImage('images/product1.jpg'),
-                    ),
-                    SizedBox(height: 10.0),
-                    Text(
-                      'Me alegra tenerte aquí!!',
-                      style: TextStyle(
-                        color: Colors.white ,
-                        fontSize: 16.0,
-                        fontFamily: 'Lobster',
+        drawer: Drawer(
+          child: Container(
+            color: Color.fromARGB(255, 255, 255, 255),
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                DrawerHeader(
+                  decoration:
+                      BoxDecoration(color: Color.fromARGB(255, 232, 153, 88)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 50.0,
+                        backgroundImage: AssetImage('images/product1.jpg'),
                       ),
+                      SizedBox(height: 10.0),
+                      Text(
+                        'Me alegra tenerte aquí!!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                          fontFamily: 'Lobster',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 249, 249, 249),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.home, color: Colors.black),
+                    title: Text(
+                      'Inicio',
+                      style: TextStyle(color: Colors.black),
                     ),
-                  ],
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.home, color: Colors.black),
-                  title: Text(
-                    'Inicio',
-                    style: TextStyle(color: Colors.black),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Screen1()),
+                      );
+                    },
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen1()),
-                    );
-                  },
                 ),
-              ),
-              Divider(
-                color: Colors.transparent,
-                height: 1,
-              ),
-              Container(
-               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
+                Divider(
+                  color: Colors.transparent,
+                  height: 1,
                 ),
-                child: ListTile(
-                  leading: Icon(Icons.shopping_cart, color: Colors.black),
-                  title: Text(
-                    'Carrito',
-                    style: TextStyle(color: Colors.black),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 249, 249, 249),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen2()),
-                    );
-                  },
-                ),
-              ),
-              Divider(
-                color: Colors.transparent,
-                height: 1,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.person, color: Colors.black),
-                  title: Text(
-                    'Perfil',
-                    style: TextStyle(color: Colors.black),
+                  child: ListTile(
+                    leading: Icon(Icons.shopping_cart, color: Colors.black),
+                    title: Text(
+                      'Carrito',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Screen2()),
+                      );
+                    },
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen3()),
-                    );
-                  },
                 ),
-              ),
-              Divider(
-                color: Colors.transparent,
-                height: 1,
-              ),
-              Container(
-                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-        
+                Divider(
+                  color: Colors.transparent,
+                  height: 1,
                 ),
-                child: ListTile(
-                  leading: Icon(Icons.logout, color: Colors.black),
-                  title: Text(
-                    'Salir',
-                    style: TextStyle(color: Colors.black),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 249, 249, 249),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyApp()),
-                    );
-                  },
+                  child: ListTile(
+                    leading: Icon(Icons.person, color: Colors.black),
+                    title: Text(
+                      'Perfil',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Screen3()),
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
+                Divider(
+                  color: Colors.transparent,
+                  height: 1,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 249, 249, 249),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.logout, color: Colors.black),
+                    title: Text(
+                      'Salir',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyApp()),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      ),
         body: Container(
           width: double.infinity,
           height: double.infinity,
@@ -410,206 +408,202 @@ class _Screen2State extends State<Screen2> {
     _controller.dispose();
     super.dispose();
   }
-void increment() {
-  setState(() {
-    if (valor < 200) {
-      valor++;
-      _controller.text = valor.toString();
-    } else {
-      mostrarMensaje('¡No puedes superar el valor 200!');
-    }
-  });
-}
 
-void decrement() {
-  setState(() {
-    if (valor > 1) {
-      valor--;
-      _controller.text = valor.toString();
-    } else {
-      mostrarMensaje('¡Valor mínimo alcanzado!');
-    }
-  });
-}
+  void increment() {
+    setState(() {
+      if (valor < 200) {
+        valor++;
+        _controller.text = valor.toString();
+      } else {
+        mostrarMensaje('¡No puedes superar el valor 200!');
+      }
+    });
+  }
 
-void mostrarMensaje(String mensaje) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text('Mensaje'),
-        content: Text(mensaje),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text('Cerrar'),
-          ),
-        ],
-      );
-    },
-  );
-}
+  void decrement() {
+    setState(() {
+      if (valor > 1) {
+        valor--;
+        _controller.text = valor.toString();
+      } else {
+        mostrarMensaje('¡Valor mínimo alcanzado!');
+      }
+    });
+  }
 
-
-
+  void mostrarMensaje(String mensaje) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Mensaje'),
+          content: Text(mensaje),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cerrar'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
       child: Scaffold(
-       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Yavi',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Lobster',
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Yavi',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Lobster',
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(
-                'Food',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 232, 153, 88),
-                  fontFamily: 'Lobster',
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
+                Text(
+                  'Food',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 232, 153, 88),
+                    fontFamily: 'Lobster',
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-      ),
-      drawer: Drawer(
-        child: Container(
-          color: Color.fromARGB(255, 255, 255, 255),
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 232, 153, 88)
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-                      radius: 50.0,
-                      backgroundImage: AssetImage('images/product1.jpg'),
-                    ),
-                    SizedBox(height: 10.0),
-                    Text(
-                      'Me alegra tenerte aquí!!',
-                      style: TextStyle(
-                        color: Colors.white ,
-                        fontSize: 16.0,
-                        fontFamily: 'Lobster',
+        drawer: Drawer(
+          child: Container(
+            color: Color.fromARGB(255, 255, 255, 255),
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                DrawerHeader(
+                  decoration:
+                      BoxDecoration(color: Color.fromARGB(255, 232, 153, 88)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 50.0,
+                        backgroundImage: AssetImage('images/product1.jpg'),
                       ),
+                      SizedBox(height: 10.0),
+                      Text(
+                        'Me alegra tenerte aquí!!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                          fontFamily: 'Lobster',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 249, 249, 249),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.home, color: Colors.black),
+                    title: Text(
+                      'Inicio',
+                      style: TextStyle(color: Colors.black),
                     ),
-                  ],
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.home, color: Colors.black),
-                  title: Text(
-                    'Inicio',
-                    style: TextStyle(color: Colors.black),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Screen1()),
+                      );
+                    },
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen1()),
-                    );
-                  },
                 ),
-              ),
-              Divider(
-                color: Colors.transparent,
-                height: 1,
-              ),
-              Container(
-               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
+                Divider(
+                  color: Colors.transparent,
+                  height: 1,
                 ),
-                child: ListTile(
-                  leading: Icon(Icons.shopping_cart, color: Colors.black),
-                  title: Text(
-                    'Carrito',
-                    style: TextStyle(color: Colors.black),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 249, 249, 249),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen2()),
-                    );
-                  },
-                ),
-              ),
-              Divider(
-                color: Colors.transparent,
-                height: 1,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.person, color: Colors.black),
-                  title: Text(
-                    'Perfil',
-                    style: TextStyle(color: Colors.black),
+                  child: ListTile(
+                    leading: Icon(Icons.shopping_cart, color: Colors.black),
+                    title: Text(
+                      'Carrito',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Screen2()),
+                      );
+                    },
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen3()),
-                    );
-                  },
                 ),
-              ),
-              Divider(
-                color: Colors.transparent,
-                height: 1,
-              ),
-              Container(
-                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-        
+                Divider(
+                  color: Colors.transparent,
+                  height: 1,
                 ),
-                child: ListTile(
-                  leading: Icon(Icons.logout, color: Colors.black),
-                  title: Text(
-                    'Salir',
-                    style: TextStyle(color: Colors.black),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 249, 249, 249),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyApp()),
-                    );
-                  },
+                  child: ListTile(
+                    leading: Icon(Icons.person, color: Colors.black),
+                    title: Text(
+                      'Perfil',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Screen3()),
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
+                Divider(
+                  color: Colors.transparent,
+                  height: 1,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 249, 249, 249),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.logout, color: Colors.black),
+                    title: Text(
+                      'Salir',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyApp()),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      ),
         body: Center(
           child: Padding(
             padding: EdgeInsets.all(70.0),
@@ -820,9 +814,8 @@ class Screen3 extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: [
               DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 232, 153, 88)
-                ),
+                decoration:
+                    BoxDecoration(color: Color.fromARGB(255, 232, 153, 88)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -834,7 +827,7 @@ class Screen3 extends StatelessWidget {
                     Text(
                       'Me alegra tenerte aquí!!',
                       style: TextStyle(
-                        color: Colors.white ,
+                        color: Colors.white,
                         fontSize: 16.0,
                         fontFamily: 'Lobster',
                       ),
@@ -866,7 +859,7 @@ class Screen3 extends StatelessWidget {
                 height: 1,
               ),
               Container(
-               decoration: BoxDecoration(
+                decoration: BoxDecoration(
                   color: Color.fromARGB(255, 249, 249, 249),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -912,10 +905,9 @@ class Screen3 extends StatelessWidget {
                 height: 1,
               ),
               Container(
-                 decoration: BoxDecoration(
+                decoration: BoxDecoration(
                   color: Color.fromARGB(255, 249, 249, 249),
                   borderRadius: BorderRadius.circular(10.0),
-        
                 ),
                 child: ListTile(
                   leading: Icon(Icons.logout, color: Colors.black),
@@ -1121,17 +1113,309 @@ class login extends StatelessWidget {
 class Screen4 extends StatelessWidget {
   final List<FoodItem> foodItems = [
     FoodItem(
-      image: 'images/food-1.jpg',
-      description: 'Pizza Margherita',
-      price: '12.99',
+      image: 'images/food-2.jpg',
+      description: 'Salchipapa',
+      price: '2.99',
     ),
     FoodItem(
-      image: 'images/food-2.jpg',
-      description: 'Hamburguesa clásica',
-      price: '8.99',
+      image: 'images/food-1.jpg',
+      description: 'Sopa de bolas de verde',
+      price: '3.99',
     ),
-    // Agrega más elementos aquí
+  
   ];
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      backgroundColor: Colors.white,
+      title: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Yavi',
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: 'Lobster',
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              'Food',
+              style: TextStyle(
+                color: Color.fromARGB(255, 232, 153, 88),
+                fontFamily: 'Lobster',
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+    drawer: Drawer(
+      child: Container(
+        color: Color.fromARGB(255, 255, 255, 255),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration:
+                  BoxDecoration(color: Color.fromARGB(255, 232, 153, 88)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 50.0,
+                    backgroundImage: AssetImage('images/product1.jpg'),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'Me alegra tenerte aquí!!',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
+                      fontFamily: 'Lobster',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 249, 249, 249),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: ListTile(
+                leading: Icon(Icons.home, color: Colors.black),
+                title: Text(
+                  'Inicio',
+                  style: TextStyle(color: Colors.black),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Screen1()),
+                  );
+                },
+              ),
+            ),
+            Divider(
+              color: Colors.transparent,
+              height: 1,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 249, 249, 249),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: ListTile(
+                leading: Icon(Icons.shopping_cart, color: Colors.black),
+                title: Text(
+                  'Carrito',
+                  style: TextStyle(color: Colors.black),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Screen2()),
+                  );
+                },
+              ),
+            ),
+            Divider(
+              color: Colors.transparent,
+              height: 1,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 249, 249, 249),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: ListTile(
+                leading: Icon(Icons.person, color: Colors.black),
+                title: Text(
+                  'Perfil',
+                  style: TextStyle(color: Colors.black),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Screen3()),
+                  );
+                },
+              ),
+            ),
+            Divider(
+              color: Colors.transparent,
+              height: 1,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 249, 249, 249),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: ListTile(
+                leading: Icon(Icons.logout, color: Colors.black),
+                title: Text(
+                  'Salir',
+                  style: TextStyle(color: Colors.black),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyApp()),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+    body: Container(
+      color: Colors.white,
+      child: SingleChildScrollView(
+        // Agregado: Envuelve el ListView.builder con SingleChildScrollView
+        child: ListView.builder(
+          shrinkWrap:
+              true, // Agregado: Para evitar desbordamiento en el contenido
+          physics:
+              NeverScrollableScrollPhysics(), // Agregado: Para deshabilitar el desplazamiento del ListView.builder
+          itemCount: foodItems.length,
+          itemBuilder: (context, index) {
+            return Center(
+              child: Card(
+                margin: EdgeInsets.all(40.0),
+                shadowColor: Colors.grey,
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 50.0,
+                        backgroundImage: AssetImage(foodItems[index].image),
+                      ),
+                      SizedBox(height: 20.0),
+                      Text(
+                        foodItems[index].description,
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10.0),
+                      Text(
+                        '\$${foodItems[index].price}',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 20.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Icon(
+                                      Icons.check_circle,
+                                      color: Color.fromARGB(255, 232, 153, 88),
+                                      size: 40.0,
+                                    ),
+                                    content: Text('Agregado al carrito con éxito!'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => Screen2()),
+                                          );
+                                        },
+                                        child: Text(
+                                          'Aceptar',
+                                          style: TextStyle(
+                                            color: Color.fromARGB(255, 232, 153, 88),
+                                          ),
+                                        ),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => Screen4()),
+                                          );
+                                        },
+                                        child: Text(
+                                          'Cancelar',
+                                          style: TextStyle(
+                                            color: Color.fromARGB(255, 232, 153, 88),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(255, 232, 153, 88),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                            ),
+                            child: Text(
+                              'Agregar al carrito',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                          SizedBox(width: 10.0),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Screen2()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(255, 232, 153, 88),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                            ),
+                            child: Text(
+                              'Ver Carrito',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    ),
+  );
+}
+}
+
+class Screen5 extends StatelessWidget {
+  List<FoodItem> foodItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -1171,9 +1455,8 @@ class Screen4 extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: [
               DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 232, 153, 88)
-                ),
+                decoration:
+                    BoxDecoration(color: Color.fromARGB(255, 232, 153, 88)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -1185,7 +1468,7 @@ class Screen4 extends StatelessWidget {
                     Text(
                       'Me alegra tenerte aquí!!',
                       style: TextStyle(
-                        color: Colors.white ,
+                        color: Colors.white,
                         fontSize: 16.0,
                         fontFamily: 'Lobster',
                       ),
@@ -1217,7 +1500,7 @@ class Screen4 extends StatelessWidget {
                 height: 1,
               ),
               Container(
-               decoration: BoxDecoration(
+                decoration: BoxDecoration(
                   color: Color.fromARGB(255, 249, 249, 249),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -1263,10 +1546,9 @@ class Screen4 extends StatelessWidget {
                 height: 1,
               ),
               Container(
-                 decoration: BoxDecoration(
+                decoration: BoxDecoration(
                   color: Color.fromARGB(255, 249, 249, 249),
                   borderRadius: BorderRadius.circular(10.0),
-        
                 ),
                 child: ListTile(
                   leading: Icon(Icons.logout, color: Colors.black),
@@ -1289,359 +1571,127 @@ class Screen4 extends StatelessWidget {
       body: Container(
         color: Colors.white,
         child: SingleChildScrollView(
-          // Agregado: Envuelve el ListView.builder con SingleChildScrollView
-          child: ListView.builder(
-            shrinkWrap:
-                true, // Agregado: Para evitar desbordamiento en el contenido
-            physics:
-                NeverScrollableScrollPhysics(), // Agregado: Para deshabilitar el desplazamiento del ListView.builder
-            itemCount: foodItems.length,
-            itemBuilder: (context, index) {
-              return Center(
-                child: Card(
-                  margin: EdgeInsets.all(40.0),
-                  shadowColor: Colors.grey,
-                  elevation: 5.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: 50.0,
-                          backgroundImage: AssetImage(foodItems[index].image),
-                        ),
-                        SizedBox(height: 20.0),
-                        Text(
-                          foodItems[index].description,
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Text(
-                          '\$${foodItems[index].price}',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 20.0),
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Screen2()),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            primary: Color.fromARGB(255, 232, 153, 88),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
+          child: Column(
+            children: [
+              ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: foodItems.length,
+                itemBuilder: (context, index) {
+                  return Center(
+                    child: Card(
+                      margin: EdgeInsets.all(40.0),
+                      shadowColor: Colors.grey,
+                      elevation: 5.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(50.0),
+                              child: Image.asset(
+                                foodItems[index].image,
+                                width: 100.0,
+                                height: 100.0,
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          child: Text(
-                            'Agregar al carrito',
-                            style: TextStyle(fontSize: 16.0),
-                          ),
+                            SizedBox(height: 20.0),
+                            Text(
+                              foodItems[index].description,
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 10.0),
+                            Text(
+                              '\$${foodItems[index].price}',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 20.0),
+                            ElevatedButton(
+                              onPressed: () {
+                                // Agregar lógica para agregar al carrito
+                              },
+                              style: ElevatedButton.styleFrom(
+                                primary: Color.fromARGB(255, 232, 153, 88),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              child: Text(
+                                'Agregar al carrito',
+                                style: TextStyle(fontSize: 16.0),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
-      ),
-    );
-  }
-}
-class Screen5 extends StatelessWidget {
-  List<FoodItem> foodItems = [];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Yavi',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Lobster',
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                  );
+                },
               ),
-              Text(
-                'Food',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 232, 153, 88),
-                  fontFamily: 'Lobster',
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      drawer: Drawer(
-        child: Container(
-          color: Color.fromARGB(255, 255, 255, 255),
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 232, 153, 88)
-                ),
+              SizedBox(height: 20.0),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(
-                      radius: 50.0,
-                      backgroundImage: AssetImage('images/product1.jpg'),
+                    Text(
+                      'Selecciona la forma de pago:',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     SizedBox(height: 10.0),
-                    Text(
-                      'Me alegra tenerte aquí!!',
-                      style: TextStyle(
-                        color: Colors.white ,
-                        fontSize: 16.0,
-                        fontFamily: 'Lobster',
+                    ElevatedButton(
+                      onPressed: () {
+                        showPaymentDialog(
+                            context); // Mostrar el diálogo de alerta
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 232, 153, 88),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                      ),
+                      child: Text(
+                        'Pagar en línea',
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ),
+                    SizedBox(height: 20.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        showCashPaymentAlert(
+                            context); // Mostrar el diálogo de alerta para pagar en efectivo
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 232, 153, 88),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                      ),
+                      child: Text(
+                        'Pagar en efectivo',
+                        style: TextStyle(fontSize: 16.0),
                       ),
                     ),
                   ],
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.home, color: Colors.black),
-                  title: Text(
-                    'Inicio',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen1()),
-                    );
-                  },
-                ),
-              ),
-              Divider(
-                color: Colors.transparent,
-                height: 1,
-              ),
-              Container(
-               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.shopping_cart, color: Colors.black),
-                  title: Text(
-                    'Carrito',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen2()),
-                    );
-                  },
-                ),
-              ),
-              Divider(
-                color: Colors.transparent,
-                height: 1,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.person, color: Colors.black),
-                  title: Text(
-                    'Perfil',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen3()),
-                    );
-                  },
-                ),
-              ),
-              Divider(
-                color: Colors.transparent,
-                height: 1,
-              ),
-              Container(
-                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-        
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.logout, color: Colors.black),
-                  title: Text(
-                    'Salir',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyApp()),
-                    );
-                  },
-                ),
-              ),
-
             ],
           ),
         ),
       ),
-body: Container(
-  color: Colors.white,
-  child: SingleChildScrollView(
-    child: Column(
-      children: [
-        ListView.builder(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: foodItems.length,
-          itemBuilder: (context, index) {
-            return Center(
-              child: Card(
-                margin: EdgeInsets.all(40.0),
-                shadowColor: Colors.grey,
-                elevation: 5.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(50.0),
-                        child: Image.asset(
-                          foodItems[index].image,
-                          width: 100.0,
-                          height: 100.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      SizedBox(height: 20.0),
-                      Text(
-                        foodItems[index].description,
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 10.0),
-                      Text(
-                        '\$${foodItems[index].price}',
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 20.0),
-                      ElevatedButton(
-                        onPressed: () {
-                          // Agregar lógica para agregar al carrito
-                        },
-                        style: ElevatedButton.styleFrom(
-                          primary: Color.fromARGB(255, 232, 153, 88),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                        child: Text(
-                          'Agregar al carrito',
-                          style: TextStyle(fontSize: 16.0),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            );
-          },
-        ),
-        SizedBox(height: 20.0),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            children: [
-              Text(
-                'Selecciona la forma de pago:',
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10.0),
-              ElevatedButton(
-                onPressed: () {
-                  showPaymentDialog(context); // Mostrar el diálogo de alerta
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 232, 153, 88),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                ),
-                child: Text(
-                  'Pagar en línea',
-                  style: TextStyle(fontSize: 16.0),
-                ),
-              ),
-              SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  showCashPaymentAlert(context); // Mostrar el diálogo de alerta para pagar en efectivo
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 232, 153, 88),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                ),
-                child: Text(
-                  'Pagar en efectivo',
-                  style: TextStyle(fontSize: 16.0),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    ),
-  ),
-),
-
     );
   }
 
@@ -1782,8 +1832,6 @@ body: Container(
     );
   }
 }
-
-
 
 class FoodItem {
   final String image;
