@@ -8,12 +8,10 @@ class FoodDetailsScreen extends StatelessWidget {
   final Food food;
 
   const FoodDetailsScreen({required this.food});
-@override
-Widget build(BuildContext context) {
-  return MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Scaffold(
-      backgroundColor: Colors.white,
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Center(
@@ -209,7 +207,6 @@ Widget build(BuildContext context) {
         ),
       ),
       bottomNavigationBar: BottomNavigation(),
-    ),
-  );
-}
+    );
+  }
 }
