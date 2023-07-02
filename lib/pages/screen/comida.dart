@@ -48,7 +48,11 @@ class FoodList extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final foods = snapshot.data!;
-              return ListView.builder(
+              return GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 200 / 280, // Relación de aspecto deseada para cada tarjeta
+                ),
                 itemCount: foods.length,
                 itemBuilder: (context, index) {
                   final food = foods[index];
@@ -62,8 +66,8 @@ class FoodList extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      padding: EdgeInsets.all(16),
+                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      padding: EdgeInsets.all(1),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -78,113 +82,89 @@ class FoodList extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 100,
-                                height: 130,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.2),
-                                      blurRadius: 5,
-                                      offset: Offset(0, 2),
-                                    ),
-                                  ],
+                          Container(
+                            width: double.infinity,
+                            height: 150, // Aumenta la altura de la imagen
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  blurRadius: 5,
+                                  offset: Offset(0, 2),
                                 ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.network(
-                                    food.imageUrl,
+                              ],
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                              ),
+                              child: Image.network(
+                                food.imageUrl,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Image.asset(
+                                    'images/food-1.jpg',
                                     fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) {
-                                      return Image.asset(
-                                        'images/food-1.jpg',
-                                        fit: BoxFit.cover,
-                                      );
-                                    },
-                                  ),
-                                ),
+                                  );
+                                },
                               ),
-                              SizedBox(width: 16),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      food.name,
-                                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(height: 8),
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          food.favorite ? Icons.favorite : Icons.favorite_border,
-                                          color: food.favorite ? Colors.red : Colors.black,
-                                        ),
-                                        SizedBox(width: 8),
-                                        Text(
-                                          'Valoración: ${food.stars}/5',
-                                          style: TextStyle(fontSize: 16),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 8),
-                                    Text(
-                                      'Origen: ${food.origins.join(", ")}',
-                                      style: TextStyle(fontSize: 16),
-                                    ),
-                                    SizedBox(height: 8),
-                                    Wrap(
-                                      spacing: 8,
-                                      children: food.tags
-                                          .map(
-                                            (tag) => Chip(
-                                              label: Text(tag),
-                                              backgroundColor: Colors.blue,
-                                              labelStyle: TextStyle(color: Colors.white),
-                                            ),
-                                          )
-                                          .toList(),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 16),
-                          Text(
-                            'Cocción: ${food.cookTime} minutos',
-                            style: TextStyle(fontSize: 16),
+                            ),
                           ),
                           SizedBox(height: 8),
                           Text(
-                            'Precio: \$${food.price.toStringAsFixed(2)}',
-                            style: TextStyle(fontSize: 16),
+                            food.name,
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(height: 16),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: IconButton(
-                              icon: Icon(Icons.add),
-                              onPressed: () {
-                                // Funcionalidad para añadir al carrito
-                                final cartItem = CartItem(
-                                  food: food,
-                                  quantity: 1,
-                                  totalPrice: food.price.toDouble(),
-                                );
-                                CartScreen.addToCart(cartItem);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text('${food.name} añadido al carrito'),
-                                    duration: Duration(seconds: 1),
+                          SizedBox(height: 8),
+                          Text(
+                            'Origen: ${food.origins.join(", ")}',
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          SizedBox(height: 8),
+                          Wrap(
+                            spacing: 4,
+                            children: food.tags
+                                .map(
+                                  (tag) => Chip(
+                                    label: Text(tag),
+                                    backgroundColor: Colors.blue,
+                                    labelStyle: TextStyle(color: Colors.white),
                                   ),
-                                );
-                              },
-                            ),
+                                )
+                                .toList(),
+                          ),
+                          SizedBox(height: 8),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '\$${food.price.toStringAsFixed(2)}',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.add),
+                                onPressed: () {
+                                  // Funcionalidad para añadir al carrito
+                                  final cartItem = CartItem(
+                                    food: food,
+                                    quantity: 1,
+                                    totalPrice: food.price.toDouble(),
+                                  );
+                                  CartScreen.addToCart(cartItem);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text('${food.name} añadido al carrito'),
+                                      duration: Duration(seconds: 1),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
                           ),
                         ],
                       ),

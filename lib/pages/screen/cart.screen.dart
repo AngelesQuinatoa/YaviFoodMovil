@@ -3,19 +3,31 @@ import '../../models/food_model.dart';
 
 class CartItem {
   final Food food;
-  final int quantity;
-  final double totalPrice;
+  int quantity;
+  double totalPrice;
 
   CartItem({required this.food, required this.quantity, required this.totalPrice});
 }
 
-class CartScreen extends StatelessWidget {
-  static List<CartItem> cartItems = []; // Lista para almacenar los productos en el carrito
+class CartScreen extends StatefulWidget {
+  static List<CartItem> cartItems = [];
 
   static void addToCart(CartItem cartItem) {
-    cartItems.add(cartItem); // Agregar el producto al carrito
+    final existingIndex = cartItems.indexWhere((item) => item.food.id == cartItem.food.id);
+    if (existingIndex != -1) {
+      final existingItem = cartItems[existingIndex];
+      existingItem.quantity += cartItem.quantity;
+      existingItem.totalPrice += cartItem.totalPrice;
+    } else {
+      cartItems.add(cartItem);
+    }
   }
 
+  @override
+  _CartScreenState createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,21 +35,57 @@ class CartScreen extends StatelessWidget {
         title: Text('Carrito'),
       ),
       body: ListView.builder(
-        itemCount: cartItems.length,
+        itemCount: CartScreen.cartItems.length,
         itemBuilder: (context, index) {
-          final cartItem = cartItems[index];
+          final cartItem = CartScreen.cartItems[index];
           return ListTile(
-            leading: Image.network(
-              cartItem.food.imageUrl,
-              errorBuilder: (context, error, stackTrace) {
-                return Image.asset(
-                  'images/food-1.jpg',
-                  fit: BoxFit.cover,
-                );
-              },
+            leading: Container(
+              width: 80, // Tamaño deseado de la imagen
+              height: 80, // Tamaño deseado de la imagen
+              child: Image.network(
+                cartItem.food.imageUrl,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.asset(
+                    'images/food-1.jpg',
+                    fit: BoxFit.cover,
+                  );
+                },
+              ),
             ),
             title: Text(cartItem.food.name),
-            subtitle: Text('Cantidad: ${cartItem.quantity}'),
+            subtitle: Row(
+              children: [
+                IconButton(
+                  icon: Icon(Icons.remove),
+                  onPressed: () {
+                    setState(() {
+                      if (cartItem.quantity > 1) {
+                        cartItem.quantity--;
+                        cartItem.totalPrice = cartItem.food.price * cartItem.quantity.toDouble();
+                      }
+                    });
+                  },
+                ),
+                Text('${cartItem.quantity}'),
+                IconButton(
+                  icon: Icon(Icons.add),
+                  onPressed: () {
+                    setState(() {
+                      cartItem.quantity++;
+                      cartItem.totalPrice = cartItem.food.price * cartItem.quantity.toDouble();
+                    });
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.delete),
+                  onPressed: () {
+                    setState(() {
+                      CartScreen.cartItems.removeAt(index);
+                    });
+                  },
+                ),
+              ],
+            ),
             trailing: Text('\$${cartItem.totalPrice.toStringAsFixed(2)}'),
           );
         },
@@ -69,7 +117,7 @@ class CartScreen extends StatelessWidget {
 
   static double calculateTotalPrice() {
     double total = 0;
-    for (var cartItem in cartItems) {
+    for (var cartItem in CartScreen.cartItems) {
       total += cartItem.totalPrice;
     }
     return total;
