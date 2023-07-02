@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project/pages/components/navbar.dart';
 
+import '../components/drawer.dart';
+
 const categoryHeight = 50.0;
 const foodHeight = 110.0;
 

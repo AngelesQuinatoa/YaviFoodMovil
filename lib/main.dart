@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/components/drawer.dart';
 import 'package:project/pages/home.dart';
 import 'package:project/pages/screen/comida.dart';
 import 'auth/login.dart';
@@ -14,7 +15,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       home: FoodList(),
+      
     );
+    
   }
 }
 

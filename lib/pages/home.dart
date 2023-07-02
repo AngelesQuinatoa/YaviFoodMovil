@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:project/auth/login.dart';
 import 'package:project/main.dart';
 
+import '../services/foods.api.dart';
+
 class homePages extends StatefulWidget {
   const homePages({super.key});
 
@@ -61,6 +63,7 @@ class _homeState extends State<homePages> {
 }
 
 class Screen1 extends StatelessWidget {
+  final FoodService foodService = FoodService();
   final List<Product> products = [
     Product(name: 'Producto 1', price: '\$10', image: 'images/food-1.jpg'),
     Product(name: 'Producto 2', price: '15.00', image: 'images/food-2.jpg'),
@@ -69,6 +72,7 @@ class Screen1 extends StatelessWidget {
     Product(name: 'Producto 5', price: '1.50', image: 'images/food-5.jpg'),
     Product(name: 'Producto 6', price: '13.50', image: 'images/food-6.jpg'),
     // Agrega las demás entradas de productos con sus respectivas imágenes
+  
   ];
 @override
 Widget build(BuildContext context) {
@@ -296,7 +300,7 @@ Widget build(BuildContext context) {
               crossAxisCount: 2,
               crossAxisSpacing: 10.0,
               mainAxisSpacing: 30.0,
-              children: products.map((product) {
+              children: products.map((foodService) {
                 return Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -319,7 +323,7 @@ Widget build(BuildContext context) {
                             top: Radius.circular(10.0),
                           ),
                           child: Image.asset(
-                            product.image,
+                            foodService.image,
                             width: double.infinity,
                             fit: BoxFit.cover,
                           ),
@@ -364,53 +368,6 @@ Widget build(BuildContext context) {
                         ),
                       ),
                       SizedBox(height: 3.0),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 6.0, right: 6.0),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // Lógica para el botón de compra
-                            },
-                            style: ElevatedButton.styleFrom(
-                              fixedSize: Size(10, 15),
-                              primary: Colors.grey[300],
-                            ),
-                            child: Text(
-                              'Quito',
-                              style: TextStyle(
-                                  fontSize: 7.0, color: Colors.grey[700]),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 6.0),
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 10.0),
-                          child: Text(
-                            ' \$20',
-                            style: TextStyle(
-                              fontSize: 10.0,
-                              color: Colors.grey[700],
-                            ),
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          primary: Color.fromARGB(255, 232, 153, 88),
-                        ),
-                        child: Text('Ver Platillo'),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Screen4()),
-                          );
-                        },
-                      ),
                     ],
                   ),
                 );
