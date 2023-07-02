@@ -1,35 +1,37 @@
-class FoodModel {
-  final String id;
-  final String name;
-  final String description;
-  final String imageUrl;
-  final List<String> tags;
+class Food {
+  String id;
+  String name;
+  int price;
+  List<String> tags;
+  bool favorite;
+  int stars;
+  String imageUrl;
+  List<String> origins;
+  String cookTime;
 
-  FoodModel({
+  Food({
     required this.id,
     required this.name,
-    required this.description,
-    required this.imageUrl,
+    required this.price,
     required this.tags,
+    required this.favorite,
+    required this.stars,
+    required this.imageUrl,
+    required this.origins,
+    required this.cookTime,
   });
 
-  factory FoodModel.fromJson(Map<String, dynamic> json) {
-    return FoodModel(
-      id: json['_id'] as String,
-      name: json['name'] as String,
-      description: json['description'] as String,
-      imageUrl: json['imageUrl'] as String,
-      tags: (json['tags'] as List<dynamic>).map((tag) => tag as String).toList(),
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      '_id': id,
-      'name': name,
-      'description': description,
-      'imageUrl': imageUrl,
-      'tags': tags,
-    };
-  }
+  factory Food.fromJson(Map<String, dynamic> json) {
+  return Food(
+    id: json['id'],
+    name: json['name'],
+    price: json['price']?.toInt() ?? 0, // Convertir a int con un valor predeterminado de 0 en caso de que sea nulo
+    tags: List<String>.from(json['tags']),
+    favorite: json['favorite'],
+    stars: json['stars']?.toInt() ?? 0, // Convertir a int con un valor predeterminado de 0 en caso de que sea nulo
+    imageUrl: json['imageUrl'],
+    origins: List<String>.from(json['origins']),
+    cookTime: json['cookTime'],
+  );
+}
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/auth/login.dart';
 import 'package:project/pages/home.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:project/services/register.api.dart';
@@ -264,7 +265,7 @@ class _RegisterState extends State<Register> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => login()),
+                                  builder: (context) => Login()),
                       );
                     },
                     child: Text(

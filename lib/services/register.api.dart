@@ -4,7 +4,9 @@ import 'package:http/http.dart' as http;
 class ApiService {
   static Future<bool> registerUser(
       String name, String email, String password, String confirmPassword, String address) async {
-    var url = Uri.parse('http://localhost:5000/api/users/register'); // Reemplaza con la URL de tu API REST
+    //var url = Uri.parse('http://localhost:5000/api/users/register'); // Reemplaza con la URL de tu API REST
+    //var url = Uri.parse('http://192.168.10.241:5000/api/users/register'); //internet de mi celular 
+    var url = Uri.parse('http://192.168.100.40:5000/api/users/register'); //internet de mi casa // Reemplaza con la URL de tu API REST
     var headers = {'Content-Type': 'application/json'};
     var body = jsonEncode({
       'name': name, //los campos que consume del backend
