@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/main.dart';
 
 import '../home.dart';
+import 'package:project/pages/screen/comida.dart';
 
 class DrawerNav extends StatelessWidget {
   const DrawerNav({Key? key});
@@ -49,7 +50,7 @@ class DrawerNav extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Screen1()),
+                    MaterialPageRoute(builder: (context) => FoodList()),
                   );
                 },
               ),

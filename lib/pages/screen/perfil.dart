@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/auth/login.dart';
 import 'package:project/main.dart';
 import 'package:project/pages/components/drawer.dart';
+import 'package:project/pages/components/navbar.dart';
 
 class homePages extends StatefulWidget {
   const homePages({super.key});
@@ -967,6 +968,7 @@ class Screen3 extends StatelessWidget {
           ),
         ),
       ),
+              bottomNavigationBar: BottomNavigation(),
     );
   }
 }

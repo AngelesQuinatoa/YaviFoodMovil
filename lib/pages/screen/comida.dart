@@ -95,10 +95,48 @@ class FoodList extends StatelessWidget {
               SliverAppBar(
                 expandedHeight: 200.0,
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Image.asset(
-                    'images/principal.jpg',
-                    fit: BoxFit.cover,
+                  background: Opacity(
+                    opacity:
+                        0.6, // Ajusta el valor de opacidad aquí (0.0 - 1.0)
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        Image.asset(
+                          'images/principal.jpg',
+                          fit: BoxFit.cover,
+                          color: Colors.black.withOpacity(0.6),
+                          colorBlendMode: BlendMode.darken,
+                        ),
+                        Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                '¡Bienvenido a YaviFood!',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              SizedBox(height: 8.0),
+                              Text(
+                                'Descubre deliciosos platillos a tu alcance, preparados por los mejores futuros gastrónomos del Instituto Yavirac.',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12.0,
+                                  // Aquí puedes agregar más propiedades de estilo según sea necesario
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
+                  centerTitle: true,
                 ),
                 backgroundColor: Colors.white,
                 pinned: true,
@@ -155,12 +193,14 @@ class FoodList extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => FoodDetailsScreen(food: food),
+                                builder: (context) =>
+                                    FoodDetailsScreen(food: food),
                               ),
                             );
                           },
                           child: Container(
-                            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                            margin: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 10),
                             padding: EdgeInsets.all(1),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -200,7 +240,8 @@ class FoodList extends StatelessWidget {
                                     child: Image.network(
                                       food.imageUrl,
                                       fit: BoxFit.cover,
-                                      errorBuilder: (context, error, stackTrace) {
+                                      errorBuilder:
+                                          (context, error, stackTrace) {
                                         return Image.asset(
                                           'images/food-1.jpg',
                                           fit: BoxFit.cover,
@@ -213,11 +254,14 @@ class FoodList extends StatelessWidget {
                                 Container(
                                   padding: EdgeInsets.symmetric(horizontal: 8),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Text(
                                         food.name,
-                                        style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold),
                                         textAlign: TextAlign.center,
                                       ),
                                       SizedBox(height: 8),
@@ -233,7 +277,8 @@ class FoodList extends StatelessWidget {
                                             .map(
                                               (tag) => Chip(
                                                 label: Text(tag),
-                                                backgroundColor: Colors.blue,
+                                                backgroundColor: Color.fromARGB(
+                                                    255, 232, 153, 88),
                                                 labelStyle: TextStyle(
                                                   fontSize: 10,
                                                   color: Colors.white,
@@ -244,7 +289,8 @@ class FoodList extends StatelessWidget {
                                       ),
                                       SizedBox(height: 4),
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
                                             '\$${food.price.toStringAsFixed(2)}',
@@ -256,13 +302,17 @@ class FoodList extends StatelessWidget {
                                               final cartItem = CartItem(
                                                 food: food,
                                                 quantity: 1,
-                                                totalPrice: food.price.toDouble(),
+                                                totalPrice:
+                                                    food.price.toDouble(),
                                               );
                                               CartScreen.addToCart(cartItem);
-                                              ScaffoldMessenger.of(context).showSnackBar(
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
                                                 SnackBar(
-                                                  content: Text('${food.name} añadido al carrito'),
-                                                  duration: Duration(seconds: 1),
+                                                  content: Text(
+                                                      '${food.name} añadido al carrito'),
+                                                  duration:
+                                                      Duration(seconds: 1),
                                                 ),
                                               );
                                             },
