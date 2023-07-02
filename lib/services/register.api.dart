@@ -7,7 +7,7 @@ class ApiService {
     var url = Uri.parse('http://localhost:5000/api/users/register'); // Reemplaza con la URL de tu API REST
     var headers = {'Content-Type': 'application/json'};
     var body = jsonEncode({
-      'name': name,
+      'name': name, //los campos que consume del backend
       'email': email,
       'password': password,
       'confirmPassword': confirmPassword,

@@ -3,6 +3,8 @@ import 'package:project/pages/home.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:project/services/register.api.dart';
 
+import '../pages/screen/perfil.dart';
+
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 

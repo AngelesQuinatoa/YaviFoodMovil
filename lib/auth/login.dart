@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/auth/register.dart';
 import 'package:project/pages/home.dart';
+import 'package:project/pages/screen/perfil.dart';
 import 'package:project/services/login.api.dart';
 
 class login extends StatefulWidget {
@@ -157,7 +158,7 @@ class _loginState extends State<login> {
                     );
                   },
                   child: Text(
-                    'ㅤㅤㅤㅤㅤㅤㅤNo tienes una cuenta? Regístrate',
+                    'No tienes una cuenta? Regístrate',
                     style: TextStyle(
                       color: Colors.black ,
                       fontSize: 16.0,

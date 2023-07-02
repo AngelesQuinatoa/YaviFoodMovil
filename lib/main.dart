@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/home.dart';
+import 'package:project/pages/screen/comida.dart';
 import 'auth/login.dart';
 
 void main() => runApp(const MyApp());
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: login(),
+      home: homepage(),
     );
   }
 }
