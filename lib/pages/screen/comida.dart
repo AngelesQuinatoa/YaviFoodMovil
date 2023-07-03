@@ -89,58 +89,58 @@ class FoodList extends StatelessWidget {
           ],
         ),
         drawer: DrawerNav(),
-        body: NestedScrollView(
-          headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return [
-              SliverAppBar(
-                expandedHeight: 200.0,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Opacity(
-                    opacity: 0.6,
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        Image.asset(
-                          'images/principal.jpg',
-                          fit: BoxFit.cover,
-                          color: Colors.black.withOpacity(0.6),
-                          colorBlendMode: BlendMode.darken,
-                        ),
-                        Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                '¡Bienvenido a YaviFood!',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              SizedBox(height: 8.0),
-                              Text(
-                                'Descubre deliciosos platillos a tu alcance, preparados por los mejores futuros gastrónomos del Instituto Yavirac.',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12.0,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
+          body: NestedScrollView(
+            headerSliverBuilder: (context, innerBoxIsScrolled) {
+              return [
+                SliverAppBar(
+                  expandedHeight: 200.0,
+                  flexibleSpace: FlexibleSpaceBar(
+                    background: Opacity(
+                      opacity: 0.6,
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          Image.asset(
+                            'images/principal.jpg',
+                            fit: BoxFit.cover,
+                            color: Colors.black.withOpacity(0.6),
+                            colorBlendMode: BlendMode.darken,
                           ),
-                        ),
-                      ],
+                          Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '¡Bienvenido a YaviFood!',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                SizedBox(height: 8.0),
+                                Text(
+                                  'Descubre deliciosos platillos a tu alcance, preparados por los mejores futuros gastrónomos del Instituto Yavirac.',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12.0,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
+                    centerTitle: true,
                   ),
-                  centerTitle: true,
+                  backgroundColor: Colors.white,
+                  pinned: false, // Cambiado a false
                 ),
-                backgroundColor: Colors.white,
-                pinned: false, // Cambiado a false
-              ),
-            ];
-          },
+              ];
+            },
           body: ListView(
             children: [
               Padding(
