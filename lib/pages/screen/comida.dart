@@ -96,8 +96,7 @@ class FoodList extends StatelessWidget {
                 expandedHeight: 200.0,
                 flexibleSpace: FlexibleSpaceBar(
                   background: Opacity(
-                    opacity:
-                        0.6, // Ajusta el valor de opacidad aquí (0.0 - 1.0)
+                    opacity: 0.6,
                     child: Stack(
                       fit: StackFit.expand,
                       children: [
@@ -126,7 +125,6 @@ class FoodList extends StatelessWidget {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 12.0,
-                                  // Aquí puedes agregar más propiedades de estilo según sea necesario
                                 ),
                                 textAlign: TextAlign.center,
                               ),
@@ -139,14 +137,15 @@ class FoodList extends StatelessWidget {
                   centerTitle: true,
                 ),
                 backgroundColor: Colors.white,
-                pinned: true,
+                pinned: false, // Cambiado a false
               ),
             ];
           },
           body: ListView(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.5),
+                padding:
+                    EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.5),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.grey[300],
