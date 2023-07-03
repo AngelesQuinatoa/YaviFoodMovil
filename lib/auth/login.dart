@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:project/auth/register.dart';
 import 'package:project/pages/home.dart';
+import 'package:project/pages/screen/carrito.dart';
+import 'package:project/pages/screen/perfil.dart';
 import 'package:project/services/login.api.dart';
 
-class login extends StatefulWidget {
-  const login({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
-  State<login> createState() => _loginState();
+  State<Login> createState() => _LoginState();
 }
 
-class _loginState extends State<login> {
+class _LoginState extends State<Login> {
   bool rememberPassword = false;
   bool isPasswordVisible = false;
   final TextEditingController _emailController = TextEditingController();
@@ -136,7 +138,7 @@ class _loginState extends State<login> {
                       // Navegar a la página de inicio o realizar otras acciones necesarias
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => homePages()),
+                        MaterialPageRoute(builder: (context) => homepage()),
                       );
                     } else {
                       // El inicio de sesión falló, puedes mostrar un mensaje de error
@@ -157,7 +159,7 @@ class _loginState extends State<login> {
                     );
                   },
                   child: Text(
-                    'ㅤㅤㅤㅤㅤㅤㅤNo tienes una cuenta? Regístrate',
+                    'No tienes una cuenta? Regístrate',
                     style: TextStyle(
                       color: Colors.black ,
                       fontSize: 16.0,
