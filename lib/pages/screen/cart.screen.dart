@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/components/drawer.dart';
 import '../../models/food_model.dart';
 
 class CartItem {
@@ -28,28 +29,105 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Carrito'),
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      backgroundColor: Colors.white,
+      title: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Yavi',
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: 'Lobster',
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              'Food',
+              style: TextStyle(
+                color: Color.fromARGB(255, 232, 153, 88),
+                fontFamily: 'Lobster',
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
-      body: ListView.builder(
-        itemCount: CartScreen.cartItems.length,
-        itemBuilder: (context, index) {
-          final cartItem = CartScreen.cartItems[index];
-          return ListTile(
-            leading: Container(
-              width: 80, // Tamaño deseado de la imagen
-              height: 80, // Tamaño deseado de la imagen
-              child: Image.network(
-                cartItem.food.imageUrl,
-                errorBuilder: (context, error, stackTrace) {
-                  return Image.asset(
-                    'images/food-1.jpg',
-                    fit: BoxFit.cover,
-                  );
-                },
+      iconTheme: IconThemeData(color: Colors.black),
+      actions: [
+        IconButton(
+          icon: Stack(
+            children: [
+              Icon(
+                Icons.shopping_cart,
+                color: Color.fromARGB(255, 232, 153, 88),
+              ),
+              Positioned(
+                top: 0,
+                right: 0,
+                child: Container(
+                  padding: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  constraints: BoxConstraints(
+                    minWidth: 16,
+                    minHeight: 16,
+                  ),
+                  child: Text(
+                    CartScreen.cartItems.length.toString(),
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 232, 153, 88),
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CartScreen(),
+              ),
+            );
+          },
+        ),
+      ],
+    ),
+    drawer: DrawerNav(),
+    body: ListView.builder(
+      itemCount: CartScreen.cartItems.length,
+      itemBuilder: (context, index) {
+        final cartItem = CartScreen.cartItems[index];
+        return Card(
+          elevation: 4,
+          margin: EdgeInsets.symmetric(vertical: 8),
+          child: ListTile(
+            leading: ClipOval(
+              child: Container(
+                width: 60,
+                height: 120,
+                child: Image.network(
+                  cartItem.food.imageUrl,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Image.asset(
+                      'images/food-1.jpg',
+                      fit: BoxFit.cover,
+                    );
+                  },
+                ),
               ),
             ),
             title: Text(cartItem.food.name),
@@ -87,34 +165,37 @@ class _CartScreenState extends State<CartScreen> {
               ],
             ),
             trailing: Text('\$${cartItem.totalPrice.toStringAsFixed(2)}'),
-          );
-        },
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: Container(
-          padding: EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Total: \$${calculateTotalPrice().toStringAsFixed(2)}',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  // Funcionalidad para realizar el pago
-                },
-                child: Text('Pagar'),
-              ),
-            ],
           ),
+        );
+      },
+    ),
+    bottomNavigationBar: BottomAppBar(
+      child: Container(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Total: \$${calculateTotalPrice().toStringAsFixed(2)}',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                // Funcionalidad para realizar el pago
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Color.fromARGB(255, 232, 153, 88),
+              ),
+              child: Text('Pagar'),
+            ),
+          ],
         ),
       ),
-    );
-  }
-
+    ),
+  );
+}
   static double calculateTotalPrice() {
     double total = 0;
     for (var cartItem in CartScreen.cartItems) {
