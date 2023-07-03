@@ -46,7 +46,7 @@ class FoodService {
       throw Exception('Failed to load food by ID');
     }
   }
-
+  
   // Implementa los demás métodos (createFood, updateFood, deleteFood) de manera similar
 
 }
