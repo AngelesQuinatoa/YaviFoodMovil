@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/pages/home.dart';
 import 'package:project/pages/screen/cart.screen.dart';
 import 'package:project/pages/screen/comida.dart';
+import 'package:project/pages/screen/perfil.dart';
 
 class BottomNavigation extends StatefulWidget {
   @override
@@ -35,7 +36,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           case 2:
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Screen3()),
+              MaterialPageRoute(builder: (context) => UserProfileScreen()),
             );
             break;
         }
