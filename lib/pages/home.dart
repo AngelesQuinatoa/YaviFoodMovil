@@ -1122,301 +1122,7 @@ class Screen4 extends StatelessWidget {
       description: 'Sopa de bolas de verde',
       price: '3.99',
     ),
-  
   ];
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(
-      backgroundColor: Colors.white,
-      title: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Yavi',
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: 'Lobster',
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              'Food',
-              style: TextStyle(
-                color: Color.fromARGB(255, 232, 153, 88),
-                fontFamily: 'Lobster',
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-    drawer: Drawer(
-      child: Container(
-        color: Color.fromARGB(255, 255, 255, 255),
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration:
-                  BoxDecoration(color: Color.fromARGB(255, 232, 153, 88)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 50.0,
-                    backgroundImage: AssetImage('images/product1.jpg'),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'Me alegra tenerte aquí!!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16.0,
-                      fontFamily: 'Lobster',
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 249, 249, 249),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: ListTile(
-                leading: Icon(Icons.home, color: Colors.black),
-                title: Text(
-                  'Inicio',
-                  style: TextStyle(color: Colors.black),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Screen1()),
-                  );
-                },
-              ),
-            ),
-            Divider(
-              color: Colors.transparent,
-              height: 1,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 249, 249, 249),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: ListTile(
-                leading: Icon(Icons.shopping_cart, color: Colors.black),
-                title: Text(
-                  'Carrito',
-                  style: TextStyle(color: Colors.black),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Screen2()),
-                  );
-                },
-              ),
-            ),
-            Divider(
-              color: Colors.transparent,
-              height: 1,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 249, 249, 249),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: ListTile(
-                leading: Icon(Icons.person, color: Colors.black),
-                title: Text(
-                  'Perfil',
-                  style: TextStyle(color: Colors.black),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Screen3()),
-                  );
-                },
-              ),
-            ),
-            Divider(
-              color: Colors.transparent,
-              height: 1,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 249, 249, 249),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: ListTile(
-                leading: Icon(Icons.logout, color: Colors.black),
-                title: Text(
-                  'Salir',
-                  style: TextStyle(color: Colors.black),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MyApp()),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-    body: Container(
-      color: Colors.white,
-      child: SingleChildScrollView(
-        // Agregado: Envuelve el ListView.builder con SingleChildScrollView
-        child: ListView.builder(
-          shrinkWrap:
-              true, // Agregado: Para evitar desbordamiento en el contenido
-          physics:
-              NeverScrollableScrollPhysics(), // Agregado: Para deshabilitar el desplazamiento del ListView.builder
-          itemCount: foodItems.length,
-          itemBuilder: (context, index) {
-            return Center(
-              child: Card(
-                margin: EdgeInsets.all(40.0),
-                shadowColor: Colors.grey,
-                elevation: 5.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircleAvatar(
-                        radius: 50.0,
-                        backgroundImage: AssetImage(foodItems[index].image),
-                      ),
-                      SizedBox(height: 20.0),
-                      Text(
-                        foodItems[index].description,
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 10.0),
-                      Text(
-                        '\$${foodItems[index].price}',
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 20.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: Icon(
-                                      Icons.check_circle,
-                                      color: Color.fromARGB(255, 232, 153, 88),
-                                      size: 40.0,
-                                    ),
-                                    content: Text('Agregado al carrito con éxito!'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(builder: (context) => Screen2()),
-                                          );
-                                        },
-                                        child: Text(
-                                          'Aceptar',
-                                          style: TextStyle(
-                                            color: Color.fromARGB(255, 232, 153, 88),
-                                          ),
-                                        ),
-                                      ),
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(builder: (context) => Screen4()),
-                                          );
-                                        },
-                                        child: Text(
-                                          'Cancelar',
-                                          style: TextStyle(
-                                            color: Color.fromARGB(255, 232, 153, 88),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 232, 153, 88),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                            ),
-                            child: Text(
-                              'Agregar al carrito',
-                              style: TextStyle(fontSize: 16.0),
-                            ),
-                          ),
-                          SizedBox(width: 10.0),
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => Screen2()),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 232, 153, 88),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                            ),
-                            child: Text(
-                              'Ver Carrito',
-                              style: TextStyle(fontSize: 16.0),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            );
-          },
-        ),
-      ),
-    ),
-  );
-}
-}
-
-class Screen5 extends StatelessWidget {
-  List<FoodItem> foodItems = [];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1571,6 +1277,304 @@ class Screen5 extends StatelessWidget {
       body: Container(
         color: Colors.white,
         child: SingleChildScrollView(
+          // Agregado: Envuelve el ListView.builder con SingleChildScrollView
+          child: ListView.builder(
+            shrinkWrap:
+                true, // Agregado: Para evitar desbordamiento en el contenido
+            physics:
+                NeverScrollableScrollPhysics(), // Agregado: Para deshabilitar el desplazamiento del ListView.builder
+            itemCount: foodItems.length,
+            itemBuilder: (context, index) {
+              return Center(
+                child: Card(
+                  margin: EdgeInsets.all(40.0),
+                  shadowColor: Colors.grey,
+                  elevation: 5.0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage: AssetImage(foodItems[index].image),
+                        ),
+                        SizedBox(height: 20.0),
+                        Text(
+                          foodItems[index].description,
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 10.0),
+                        Text(
+                          '\$${foodItems[index].price}',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 20.0),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: Icon(
+                                        Icons.check_circle,
+                                        color:
+                                            Color.fromARGB(255, 232, 153, 88),
+                                        size: 40.0,
+                                      ),
+                                      content: Text(
+                                          'Agregado al carrito con éxito!'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Screen2()),
+                                            );
+                                          },
+                                          child: Text(
+                                            'Aceptar',
+                                            style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 232, 153, 88),
+                                            ),
+                                          ),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Screen4()),
+                                            );
+                                          },
+                                          child: Text(
+                                            'Cancelar',
+                                            style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 232, 153, 88),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                primary: Color.fromARGB(255, 232, 153, 88),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              child: Text(
+                                'Agregar al carrito',
+                                style: TextStyle(fontSize: 16.0),
+                              ),
+                            ),
+                            SizedBox(width: 10.0),
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Screen2()),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                primary: Color.fromARGB(255, 232, 153, 88),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              child: Text(
+                                'Ver Carrito',
+                                style: TextStyle(fontSize: 16.0),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Screen5 extends StatelessWidget {
+  List<FoodItem> foodItems = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Yavi',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Lobster',
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                'Food',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 232, 153, 88),
+                  fontFamily: 'Lobster',
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      drawer: Drawer(
+        child: Container(
+          color: Color.fromARGB(255, 255, 255, 255),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(color: Color.fromARGB(255, 232, 153, 88)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 50.0,
+                      backgroundImage: AssetImage('images/product1.jpg'),
+                    ),
+                    SizedBox(height: 10.0),
+                    Text(
+                      'Me alegra tenerte aquí!!',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
+                        fontFamily: 'Lobster',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 249, 249, 249),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.home, color: Colors.black),
+                  title: Text(
+                    'Inicio',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Screen1()),
+                    );
+                  },
+                ),
+              ),
+              Divider(// Cambia el color del separador a "tomato"
+                height: 1,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 249, 249, 249),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.shopping_cart, color: Colors.black),
+                  title: Text(
+                    'Carrito',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Screen2()),
+                    );
+                  },
+                ),
+              ),
+              Divider( // Cambia el color del separador a "tomato"
+                height: 1,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 249, 249, 249),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.person, color: Colors.black),
+                  title: Text(
+                    'Perfil',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Screen3()),
+                    );
+                  },
+                ),
+              ),
+              Divider(// Cambia el color del separador a "tomato"
+                height: 1,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 249, 249, 249),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.logout, color: Colors.black),
+                  title: Text(
+                    'Salir',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyApp()),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      body: Container(
+        color: Colors.white,
+        child: SingleChildScrollView(
           child: Column(
             children: [
               ListView.builder(
@@ -1645,45 +1649,138 @@ class Screen5 extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Selecciona la forma de pago:',
+                      'Nombre del Titular',
                       style: TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(height: 10.0),
-                    ElevatedButton(
-                      onPressed: () {
-                        showPaymentDialog(
-                            context); // Mostrar el diálogo de alerta
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 232, 153, 88),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
+                    TextField(
+                      maxLength: 100,
+                      decoration: InputDecoration(
+                        hintText: 'Nombre del Titular',
                       ),
-                      child: Text(
-                        'Pagar en línea',
-                        style: TextStyle(fontSize: 16.0),
+                    ),
+                    SizedBox(height: 20.0),
+                    Text(
+                      'Número de Tarjeta',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    TextField(
+                      maxLength: 16,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        hintText: 'Número de Tarjeta',
+                      ),
+                    ),
+                    SizedBox(height: 20.0),
+                    Text(
+                      'Fecha de Expiración (MM/AAAA)',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            maxLength: 2,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              hintText: 'MM',
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 10.0),
+                        Expanded(
+                          child: TextField(
+                            maxLength: 4,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              hintText: 'AAAA',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20.0),
+                    Text(
+                      'Código de Seguridad',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    TextField(
+                      maxLength: 3,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        hintText: 'Código de Seguridad',
+                      ),
+                    ),
+                    SizedBox(height: 20.0),
+                    Text(
+                      'Dirección',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextField(
+                      maxLength: 200,
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        hintText: 'Dirección',
+                      ),
+                    ),
+                    SizedBox(height: 20.0),
+                    Text(
+                      'Número de Teléfono',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextField(
+                      maxLength: 10,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        hintText: 'Número de Teléfono',
                       ),
                     ),
                     SizedBox(height: 20.0),
                     ElevatedButton(
                       onPressed: () {
-                        showCashPaymentAlert(
-                            context); // Mostrar el diálogo de alerta para pagar en efectivo
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Compra Exitosa'),
+                              content: Text('¡Gracias por tu compra!'),
+                              actions: [
+                                TextButton(
+                                  child: Text('Aceptar'),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 232, 153, 88),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
+                        primary: Color.fromARGB(255, 232, 153, 88), // Cambia el color del botón a "tomate"
                       ),
-                      child: Text(
-                        'Pagar en efectivo',
-                        style: TextStyle(fontSize: 16.0),
-                      ),
+                      child: Text('Finalizar Compra'),
                     ),
                   ],
                 ),
@@ -1694,144 +1791,8 @@ class Screen5 extends StatelessWidget {
       ),
     );
   }
-
-  void showPaymentDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Ingrese los datos de la tarjeta'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Número de tarjeta',
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Color.fromARGB(255, 232, 153, 88)),
-                  ),
-                  labelStyle: TextStyle(
-                    color: Color.fromARGB(255, 232, 153, 88),
-                  ),
-                ),
-              ),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Fecha de vencimiento',
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Color.fromARGB(255, 232, 153, 88)),
-                  ),
-                  labelStyle: TextStyle(
-                    color: Color.fromARGB(255, 232, 153, 88),
-                  ),
-                ),
-              ),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Código de seguridad',
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Color.fromARGB(255, 232, 153, 88)),
-                  ),
-                  labelStyle: TextStyle(
-                    color: Color.fromARGB(255, 232, 153, 88),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                // Aquí puedes agregar la lógica para procesar el pago en línea con tarjeta
-                // ...
-                Navigator.of(context).pop(); // Cerrar el diálogo
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 232, 153, 88),
-              ),
-              child: Text('Pagar'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Cerrar el diálogo
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 232, 153, 88),
-              ),
-              child: Text('Cancelar'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void showCashPaymentAlert(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Pagar en efectivo'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Ingrese su dirección:',
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10.0),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Dirección',
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Color.fromARGB(255, 232, 153, 88)),
-                  ),
-                  labelStyle: TextStyle(
-                    color: Color.fromARGB(255, 232, 153, 88),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                'Valor: \$99,99',
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                'Gracias por su compra',
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Cerrar el diálogo
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 232, 153, 88),
-              ),
-              child: Text('Aceptar'),
-            ),
-          ],
-        );
-      },
-    );
-  }
 }
+
 
 class FoodItem {
   final String image;
