@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/auth/login.dart';
 import 'package:project/pages/home.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:project/pages/screen/comida.dart';
 import 'package:project/services/register.api.dart';
 
 class Register extends StatefulWidget {
@@ -247,7 +248,7 @@ class _RegisterState extends State<Register> {
                           print('Registro exitoso');
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => homePages()),
+                            MaterialPageRoute(builder: (context) => FoodList()),
                           );
                         } else {
                           print('Error en el registro');

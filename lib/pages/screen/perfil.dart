@@ -119,7 +119,7 @@ Widget build(BuildContext context) {
               ),
               child: ClipOval(
                 child: Image.asset(
-                  '../images/perfil.jpeg',
+                  'images/perfil.jpeg',
                   fit: BoxFit.cover,
                 ),
               ),

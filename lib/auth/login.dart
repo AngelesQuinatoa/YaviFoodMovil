@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/auth/register.dart';
 import 'package:project/pages/home.dart';
-import 'package:project/pages/screen/carrito.dart';
+import 'package:project/pages/screen/comida.dart';
 import 'package:project/pages/screen/perfil.dart';
 import 'package:project/services/login.api.dart';
 
@@ -138,7 +138,7 @@ class _LoginState extends State<Login> {
                       // Navegar a la página de inicio o realizar otras acciones necesarias
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => homepage()),
+                        MaterialPageRoute(builder: (context) => FoodList()),
                       );
                     } else {
                       // El inicio de sesión falló, puedes mostrar un mensaje de error

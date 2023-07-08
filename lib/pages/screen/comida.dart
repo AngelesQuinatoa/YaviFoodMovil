@@ -88,7 +88,7 @@ class FoodList extends StatelessWidget {
             ),
           ],
         ),
-        drawer: DrawerNav(),
+        //
           body: NestedScrollView(
             headerSliverBuilder: (context, innerBoxIsScrolled) {
               return [

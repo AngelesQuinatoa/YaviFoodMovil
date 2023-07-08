@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/auth/login.dart';
 import 'package:project/main.dart';
+import 'package:project/pages/components/drawer.dart';
 import 'package:project/pages/screen/comida.dart';
 
 import '../services/foods.api.dart';
@@ -1448,126 +1449,8 @@ class Screen5 extends StatelessWidget {
           ),
         ),
       ),
-      drawer: Drawer(
-        child: Container(
-          color: Color.fromARGB(255, 255, 255, 255),
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration:
-                    BoxDecoration(color: Color.fromARGB(255, 232, 153, 88)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-                      radius: 50.0,
-                      backgroundImage: AssetImage('images/principal.jpg'),
-                    ),
-                    SizedBox(height: 10.0),
-                    Text(
-                      'Me alegra tenerte aquí!!',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
-                        fontFamily: 'Lobster',
-                      ),
-                    ),
-                  ],
-                ),
+      drawer: DrawerNav(
               ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.home, color: Colors.black),
-                  title: Text(
-                    'Inicio',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen1()),
-                    );
-                  },
-                ),
-              ),
-              Divider(
-                // Cambia el color del separador a "tomato"
-                height: 1,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.shopping_cart, color: Colors.black),
-                  title: Text(
-                    'Carrito',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen2()),
-                    );
-                  },
-                ),
-              ),
-              Divider(
-                // Cambia el color del separador a "tomato"
-                height: 1,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.person, color: Colors.black),
-                  title: Text(
-                    'Perfil',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Screen3()),
-                    );
-                  },
-                ),
-              ),
-              Divider(
-                // Cambia el color del separador a "tomato"
-                height: 1,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 249, 249, 249),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListTile(
-                  leading: Icon(Icons.logout, color: Colors.black),
-                  title: Text(
-                    'Salir',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyApp()),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
       body: Container(
         color: Colors.white,
         child: SingleChildScrollView(

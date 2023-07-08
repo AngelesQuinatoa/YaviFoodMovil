@@ -3,9 +3,9 @@ import 'dart:convert';
 import '../models/food_model.dart';
 
 class FoodService {
-  static const String baseUrl = 'http://localhost:5000/api';
-  //static const String baseUrl = 'http://192.168.10.241:5000/api'; //internet de mi celular
-  //  static const String baseUrl = 'http://192.168.100.40:5000/api'; //internet de mi casa
+  //static const String baseUrl = 'http://localhost:5000/api';
+  static const String baseUrl = 'http://192.168.10.241:5000/api'; //internet de mi celular
+    //static const String baseUrl = 'http://192.168.100.40:5000/api'; //internet de mi casa
 
   Future<List<Food>> getAllFoods() async {
     final response = await http.get(Uri.parse('$baseUrl/foods'));

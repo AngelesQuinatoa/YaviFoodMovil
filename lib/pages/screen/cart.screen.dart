@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/pages/components/drawer.dart';
+import 'package:project/pages/home.dart';
 import '../../models/food_model.dart';
 
 class CartItem {
@@ -183,8 +184,13 @@ Widget build(BuildContext context) {
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // Funcionalidad para realizar el pago
-              },
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Screen5(),
+              ),
+            );
+          },
               style: ElevatedButton.styleFrom(
                 primary: Color.fromARGB(255, 232, 153, 88),
               ),

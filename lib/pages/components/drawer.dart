@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/main.dart';
+import 'package:project/pages/screen/cart.screen.dart';
+import 'package:project/pages/screen/perfil.dart';
 
 import '../home.dart';
 import 'package:project/pages/screen/comida.dart';
@@ -73,7 +75,7 @@ class DrawerNav extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Screen2()),
+                    MaterialPageRoute(builder: (context) => CartScreen()),
                   );
                 },
               ),
@@ -96,7 +98,7 @@ class DrawerNav extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Screen3()),
+                    MaterialPageRoute(builder: (context) => UserProfileScreen()),
                   );
                 },
               ),
